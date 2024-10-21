@@ -20,7 +20,7 @@ Acesse o endpoint com a listagem de itens do cardápio em: http://localhost:8080
 
 ## Teste de carga básico
 
-UsApache Bench (ab)
+Vamos utilizar o Apache Bench (ab) para um teste de carga bem básico. Instalação:
 
 - Ubuntu/Debian: `sudo apt-get install apache2-utils`
 - CentOS/RHEL: `sudo yum install httpd-tools`
