@@ -1,6 +1,6 @@
 -- Pratos Principais
 INSERT INTO ItemCardapio (id, nome, descricao, categoria, preco, precoPromocional) VALUES
-(1, 'Sanduíche de Presunto do Chaves', 'Sanduíche de presunto simples, mas feito com muito amor.', 'PRATOS PRINCIPAIS', 3.50, 2.99);
+(1, 'Sanduíche de Presunto do Chaves', 'Sanduíche de presunto simples, mas feito com muito amor.', 'PRATOS_PRINCIPAIS', 3.50, 2.99);
 
 -- Bebidas
 INSERT INTO ItemCardapio (id, nome, descricao, categoria, preco, precoPromocional) VALUES
