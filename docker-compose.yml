@@ -1,0 +1,42 @@
+services:
+  florinda.eats.db:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - '3306:3306'
+    networks:
+      - florinda-eats-network
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: florinda_eats
+    volumes:
+      - mysql.florinda.eats:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysql", "-u", "root", "-proot", "--execute", "SHOW DATABASES;"]
+      interval: 5s
+      retries: 20
+      timeout: 90s
+  florinda.eats.api:
+    image: alexandre/florinda-eats:1.0.0-SNAPSHOT
+    ports:
+      - '8080:8080'
+    networks:
+      - florinda-eats-network
+    environment:
+      QUARKUS_DATASOURCE_USERNAME: root
+      QUARKUS_DATASOURCE_PASSWORD: root
+      QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://florinda.eats.db:3306/florinda_eats
+    depends_on:
+      florinda.eats.db:
+        condition: service_healthy
+
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 512M
+volumes:
+  mysql.florinda.eats:
+networks:
+  florinda-eats-network:
