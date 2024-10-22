@@ -1,5 +1,6 @@
 package mx.florinda.itemCardapio;
 
+import io.smallrye.mutiny.Uni;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -12,7 +13,7 @@ import java.util.List;
 public class ItemCardapioResource {
 
   @GET
-  public List<ItemCardapio> lista() {
+  public Uni<List<ItemCardapio>> lista() {
     return ItemCardapio.listAll();
   }
 }

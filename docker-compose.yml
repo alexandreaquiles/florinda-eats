@@ -32,6 +32,7 @@ services:
       QUARKUS_DATASOURCE_USERNAME: root
       QUARKUS_DATASOURCE_PASSWORD: root
       QUARKUS_DATASOURCE_JDBC_URL: jdbc:mysql://florinda.eats.db:3306/florinda_eats
+      QUARKUS_DATASOURCE_REACTIVE_URL: mysql://florinda.eats.db:3306/florinda_eats
     depends_on:
       florinda.eats.db:
         condition: service_healthy

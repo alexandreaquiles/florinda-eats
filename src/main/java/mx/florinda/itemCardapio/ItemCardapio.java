@@ -1,6 +1,6 @@
 package mx.florinda.itemCardapio;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
+import io.quarkus.hibernate.reactive.panache.PanacheEntity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
