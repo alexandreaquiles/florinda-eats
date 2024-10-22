@@ -10,6 +10,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: florinda_eats
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 512M
     volumes:
       - mysql.florinda.eats:/var/lib/mysql
     healthcheck:
@@ -30,7 +35,6 @@ services:
     depends_on:
       florinda.eats.db:
         condition: service_healthy
-
     deploy:
       resources:
         limits:
