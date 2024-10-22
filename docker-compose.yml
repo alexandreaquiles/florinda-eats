@@ -23,7 +23,7 @@ services:
       retries: 20
       timeout: 90s
   florinda.eats.api:
-    image: alexandre/florinda-eats:1.0.0-SNAPSHOT
+    image: alexandre/florinda-eats:reativo
     ports:
       - '8080:8080'
     networks:

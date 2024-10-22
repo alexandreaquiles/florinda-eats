@@ -3,18 +3,20 @@
 Para fazer o build de uma imagem Docker com a aplicação:
 
 ```sh
-quarkus build -Dquarkus.container-image.build=true
+quarkus build -Dquarkus.container-image.build=true -Dquarkus.container-image.tag=reativo
 ```
 
-Deve ser criado uma imagem com o seguinte nome e tag: `alexandre/florinda-eats:1.0.0-SNAPSHOT `
+Deve ser criada uma imagem com o seguinte nome e tag: `alexandre/florinda-eats:reativo`
 
-Para executar um BD local e a aplicação utilizando o Docker Compose:
+Caso a versão Reativa do client MySQL e Panache não seja usada, defina a tag como `imperativo`.
+
+Para executar um BD local MySQL 8 e a aplicação, utilize o Docker Compose:
 
 ```sh
 docker compose up
 ```
 
-A aplicação terá o limite de 2 CPUs e 512 MB de memória.
+A aplicação terá o limite de 2 CPUs e o BD de 1 CPU. Tanto a aplicação como o BD terão 512 MB de memória.
 
 Acesse o endpoint com a listagem de itens do cardápio em: http://localhost:8080/itens-cardapio
 
