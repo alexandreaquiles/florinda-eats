@@ -12,8 +12,12 @@ public class ItemCardapioResource {
   @GET
   public Uni<List<ItemCardapioResponse>> lista() {
     return ItemCardapio.<ItemCardapio>listAll()
-            .map(itens -> itens.stream()
-                    .map(ItemCardapioResponse::fromEntity)
-                    .toList());
+            .map(ItemCardapioResource::getItensResponse);
+  }
+
+  private static List<ItemCardapioResponse> getItensResponse(List<ItemCardapio> itens) {
+    return itens.stream()
+            .map(ItemCardapioResponse::fromEntity)
+            .toList();
   }
 }
