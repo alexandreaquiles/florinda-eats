@@ -17,4 +17,7 @@ public class ItemCardapio extends PanacheEntity {
   public BigDecimal preco;
   public BigDecimal precoPromocional;
 
+  public BigDecimal getPrecoFinal() {
+    return this.precoPromocional != null ? this.precoPromocional : this.preco;
+  }
 }

@@ -10,7 +10,10 @@ import java.util.List;
 public class ItemCardapioResource {
 
   @GET
-  public Uni<List<ItemCardapio>> lista() {
-    return ItemCardapio.listAll();
+  public Uni<List<ItemCardapioResponse>> lista() {
+    return ItemCardapio.<ItemCardapio>listAll()
+            .map(itens -> itens.stream()
+                    .map(ItemCardapioResponse::fromEntity)
+                    .toList());
   }
 }

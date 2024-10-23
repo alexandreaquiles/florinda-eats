@@ -10,7 +10,37 @@
 			"name": "lista itens cardapio",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/itens-cardapio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-cardapio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "adiciona novo item cardápio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/itens-cardapio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-cardapio"
+					]
+				}
 			},
 			"response": []
 		}
