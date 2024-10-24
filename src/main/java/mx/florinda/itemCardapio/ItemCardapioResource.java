@@ -1,8 +1,11 @@
 package mx.florinda.itemCardapio;
 
+import io.quarkus.hibernate.reactive.panache.Panache;
 import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import org.jboss.resteasy.reactive.RestResponse;
 
 import java.util.List;
 
@@ -13,6 +16,14 @@ public class ItemCardapioResource {
   public Uni<List<ItemCardapioResponse>> lista() {
     return ItemCardapio.<ItemCardapio>listAll()
             .map(ItemCardapioResource::getItensResponse);
+  }
+
+  @POST
+  public Uni<RestResponse<ItemCardapioResponse>> cria(ItemCardapioRequest itemCardapioRequest) {
+    ItemCardapio itemCardapio = itemCardapioRequest.toEntity();
+    return Panache.<ItemCardapio>withTransaction(itemCardapio::persist)
+            .map(item -> RestResponse.status(RestResponse.Status.CREATED,
+                    ItemCardapioResponse.fromEntity(item)));
   }
 
   private static List<ItemCardapioResponse> getItensResponse(List<ItemCardapio> itens) {

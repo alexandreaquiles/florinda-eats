@@ -30,6 +30,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Água de Jamaica\",\n  \"descricao\": \"Água aromatizada com hibisco e toque de açúcar.\",\n  \"categoria\": \"BEBIDAS\",\n  \"preco\": 2.50\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:8080/itens-cardapio",
 					"protocol": "http",
