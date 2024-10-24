@@ -26,6 +26,15 @@ public class ItemCardapioResource {
                     ItemCardapioResponse.fromEntity(item)));
   }
 
+  @GET
+  @Path("/por-categoria")
+  public Uni<List<ItemCardapioPorCategoriaResponse>> porCategoria() {
+    return ItemCardapio
+            .find("SELECT c.categoria, COUNT(c) FROM ItemCardapio c GROUP BY c.categoria")
+            .project(ItemCardapioPorCategoriaResponse.class)
+            .list();
+  }
+
   private static List<ItemCardapioResponse> getItensResponse(List<ItemCardapio> itens) {
     return itens.stream()
             .map(ItemCardapioResponse::fromEntity)
