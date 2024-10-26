@@ -23,4 +23,12 @@ public class ItemCardapioResource {
     return Panache.<ItemCardapio>withTransaction(itemCardapio::persist)
             .map(item -> RestResponse.status(RestResponse.Status.CREATED, item));
   }
+
+  @GET
+  @Path("/por-categoria")
+  public Uni<List<ItemCardapioPorCategoriaResponse>> itensPorCategoria() {
+    return ItemCardapio.find("select ic.categoria, count(ic) from ItemCardapio ic group by ic.categoria")
+            .project(ItemCardapioPorCategoriaResponse.class)
+            .list();
+  }
 }
