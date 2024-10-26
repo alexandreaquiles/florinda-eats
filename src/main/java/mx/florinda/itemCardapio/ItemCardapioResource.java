@@ -5,6 +5,7 @@ import io.smallrye.mutiny.Uni;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
+import mx.florinda.pedido.Pedido;
 import org.jboss.resteasy.reactive.RestResponse;
 
 import java.util.List;
@@ -31,4 +32,19 @@ public class ItemCardapioResource {
             .project(ItemCardapioPorCategoriaResponse.class)
             .list();
   }
+
+  @GET
+  @Path("/categorias/mais-pedidos")
+  public Uni<List<ItemCardapioPorCategoriaResponse>> porCategoria() {
+    return Pedido.find("""
+            SELECT ic.categoria, COUNT(ip) AS totalPedidos
+            FROM ItemPedido ip
+            JOIN ip.itemCardapio ic
+            GROUP BY ic.categoria
+            ORDER BY totalPedidos DESC
+            """)
+            .project(ItemCardapioPorCategoriaResponse.class)
+            .list();
+  }
+
 }
