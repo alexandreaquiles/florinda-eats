@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4dfa1191-396f-4a9c-bec5-8f3cc59ee7fd",
+		"_postman_id": "e4d279b3-a3ae-4ebb-816b-96b7427785db",
 		"name": "florinda-eats",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "2489523"
@@ -10,7 +10,104 @@
 			"name": "lista itens cardapio",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/itens-cardapio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-cardapio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cria novo item cardapio",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Água de Jamaica\",\n  \"descricao\": \"Água aromatizada com hibisco e toque de açúcar.\",\n  \"categoria\": \"BEBIDAS\",\n  \"preco\": 2.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/itens-cardapio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-cardapio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "itens de cardapio por categoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Água de Jamaica\",\n  \"descricao\": \"Água aromatizada com hibisco e toque de açúcar.\",\n  \"categoria\": \"BEBIDAS\",\n  \"preco\": 2.50\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/itens-cardapio/por-categoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"itens-cardapio",
+						"por-categoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lista pedidos",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"nome\": \"Água de Jamaica\",\n  \"descricao\": \"Água aromatizada com hibisco e toque de açúcar.\",\n  \"categoria\": \"BEBIDAS\",\n  \"preco\": 2.50\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/pedidos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pedidos"
+					]
+				}
 			},
 			"response": []
 		}
