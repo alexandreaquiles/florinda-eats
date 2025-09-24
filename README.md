@@ -1,6 +1,6 @@
 # florinda-eats
 
-Projeto de demonstração do Workshop "Reactive Quarkus" ministrado durante o BBDW.
+Projeto de demonstração do Workshop "Reactive Quarkus".
 
 Para executar o projeto, utilize o IntelliJ.
 
